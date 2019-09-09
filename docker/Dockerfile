@@ -40,6 +40,7 @@ RUN cd /data/src && \
     go get github.com/gorilla/websocket && \
     cd /data/src/go-ws/docker && \
     chmod +x ./start.sh && \
+    cd /data/src/go-ws && \
     go build -o go-ws main.go && \
     chmod +x go-ws
 CMD ["/data/src/go-ws/docker/start.sh"]
