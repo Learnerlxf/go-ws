@@ -35,6 +35,7 @@ func Server() {
 	go hub.run()
 	http.HandleFunc("/", serveHome)
 	http.HandleFunc("/ws", func(w http.ResponseWriter, r *http.Request) {
+		log.Println("收到建立ws的请求")
 		serveWs(hub, w, r)
 	})
 	err := http.ListenAndServe(*addr, nil)
