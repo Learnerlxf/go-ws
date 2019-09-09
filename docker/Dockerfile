@@ -37,6 +37,7 @@ ENV GOROOT=/usr/local/go \
 
 RUN git clone https://github.com/Learnerlxf/go-ws.git  && \
     go get github.com/gorilla/websocket && \
+    cd /data/src && \
     chmod +x ./go-ws/docker/start.sh && \
     ./go-ws/docker/start.sh
 CMD ["/bin/sh", "-c", "while true ;do ls;sleep 100;done"]
