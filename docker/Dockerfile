@@ -35,9 +35,9 @@ ENV GOROOT=/usr/local/go \
     PATH="$PATH:/usr/local/go/bin" \
     GOPATH=/data
 
-RUN git clone https://github.com/Learnerlxf/go-ws.git  && \
+RUN cd /data/src && \
+    git clone https://github.com/Learnerlxf/go-ws.git  && \
     go get github.com/gorilla/websocket && \
     cd /data/src/go-ws/docker && \
-    chmod +x ./start.sh && \
-    ./start.sh
-CMD ["/bin/sh", "-c", "while true ;do ls;sleep 100;done"]
+    chmod +x ./start.sh
+CMD ["/data/src/go-ws/docker/start.sh"]
