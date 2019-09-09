@@ -39,5 +39,7 @@ RUN cd /data/src && \
     git clone https://github.com/Learnerlxf/go-ws.git  && \
     go get github.com/gorilla/websocket && \
     cd /data/src/go-ws/docker && \
-    chmod +x ./start.sh
+    chmod +x ./start.sh && \
+    go build -o go-ws main.go && \
+    chmod +x go-ws
 CMD ["/data/src/go-ws/docker/start.sh"]
