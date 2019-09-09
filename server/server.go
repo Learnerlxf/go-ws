@@ -32,6 +32,9 @@ func serveHome(w http.ResponseWriter, r *http.Request) {
 func Server() {
 	flag.Parse()
 	hub := newHub()
+	upgrader.CheckOrigin = func(r *http.Request) bool {
+		return true
+	}
 	go hub.run()
 	http.HandleFunc("/", serveHome)
 	http.HandleFunc("/ws", func(w http.ResponseWriter, r *http.Request) {
